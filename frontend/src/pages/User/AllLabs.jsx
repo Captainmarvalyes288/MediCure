@@ -18,7 +18,12 @@ const AllLabs = () => {
     try {
       setLoading(true);
       const response = await axios.get('/api/labs');
-      setLabs(response.data);
+      // Ensure services is always an array
+      const labsWithServices = response.data.map(lab => ({
+        ...lab,
+        services: Array.isArray(lab.services) ? lab.services : []
+      }));
+      setLabs(labsWithServices);
       
       // Extract unique cities
       const uniqueCities = [...new Set(response.data.map(lab => lab.city))];
@@ -34,12 +39,18 @@ const AllLabs = () => {
 
   const filteredLabs = labs.filter(lab => {
     const matchesSearch = lab.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         lab.description.toLowerCase().includes(searchTerm.toLowerCase());
+                         (lab.description && lab.description.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesCity = selectedCity ? lab.city === selectedCity : true;
     return matchesSearch && matchesCity;
   });
 
-  if (loading) return <div className="p-6 text-center">Loading...</div>;
+  if (loading) {
+    return (
+      <div className="p-6 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6">
@@ -89,7 +100,7 @@ const AllLabs = () => {
               <p className="text-gray-600 mb-4">{lab.operatingHours}</p>
               
               {/* Services */}
-              {lab.services && lab.services.length > 0 && (
+              {Array.isArray(lab.services) && lab.services.length > 0 && (
                 <div className="mb-4">
                   <h3 className="font-semibold mb-2">Services</h3>
                   <div className="flex flex-wrap gap-2">
@@ -133,4 +144,4 @@ const AllLabs = () => {
   );
 };
 
-export default AllLabs; 
+export default AllLabs;

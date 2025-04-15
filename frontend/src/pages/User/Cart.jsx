@@ -34,6 +34,12 @@ const Cart = () => {
   const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
   const proceedToCheckout = () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      toast.error('Please login to continue');
+      navigate('/login');
+      return;
+    }
     if (cart.length === 0) {
       toast.error('Your cart is empty');
       return;
@@ -147,4 +153,4 @@ const Cart = () => {
   );
 };
 
-export default Cart; 
+export default Cart;

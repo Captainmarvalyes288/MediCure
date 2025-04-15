@@ -334,23 +334,37 @@ function Chatbot() {
         </div>
       )}
 
-      {/* Main Chatbot Icon (Toggle Button) */}
+      Main Chatbot Icon (Toggle Button)
       <div className="chatbot-icon" onClick={toggleChatbot} aria-label="Open medical assistant">
-        <svg 
-          viewBox="0 0 24 24" 
+        <svg
+          viewBox="0 0 24 24"
           className="w-8 h-8 text-white"
-          fill="none" 
+          fill="none"
           stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
+          {/* Main Circle */}
+          <circle cx="12" cy="12" r="10" />
+          
+          {/* Brain Pattern */}
+          <path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4" />
+          <path d="M12 8c1.5 0 2.9.6 3.9 1.6" />
+          <path d="M12 16c-1.5 0-2.9-.6-3.9-1.6" />
+          
+          {/* Medical Cross */}
+          <path d="M12 10v4M10 12h4" />
+          
+          {/* Connection Lines */}
+          <path d="M7 9c-.3-.3-.5-.7-.6-1.1" />
+          <path d="M17 9c.3-.3.5-.7.6-1.1" />
+          
+          {/* Pulse Line */}
           <path
-            d="M12 2C6.48 2 2 6.48 2 12c0 1.61.38 3.13 1.06 4.48.17.35.17.74 0 1.09l-1.06 2.12c-.17.35-.17.74 0 1.09.17.35.52.57.91.57h2.29c2.78 0 5.29-1.67 6.35-4.24.71.13 1.43.2 2.17.2 5.52 0 10-4.48 10-10S17.52 2 12 2z"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            d="M8.7 15c-.4-.5-.7-1.1-.8-1.8M15.3 15c.4-.5.7-1.1.8-1.8"
+            strokeDasharray="1 2"
           />
-          <circle cx="8" cy="12" r="1" fill="currentColor" />
-          <circle cx="12" cy="12" r="1" fill="currentColor" />
-          <circle cx="16" cy="12" r="1" fill="currentColor" />
         </svg>
       </div>
 

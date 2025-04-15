@@ -1,4 +1,3 @@
-
 import Navbar from './components/Navbar'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
@@ -15,6 +14,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Verify from './pages/Verify'
 import Chatbot from './components/Chatbot'
 import PrescriptionUploader from './components/PrescriptionUploader'
+import AllMedicines from './pages/User/AllMedicines'
+import AllLabs from './pages/User/AllLabs'
+import BookLab from './pages/User/BookLab'
 
 const App = () => {
   return (
@@ -33,6 +35,9 @@ const App = () => {
         <Route path='/my-profile' element={<MyProfile />} />
         <Route path='/verify' element={<Verify />} />
         <Route path='/medicines' element={<PrescriptionUploader />} />
+        <Route path='/all-medicines' element={<AllMedicines />} />
+        <Route path='/all-labs' element={<AllLabs />} />
+        <Route path='/book-lab/:id' element={<BookLab />} />
       </Routes>
       <Chatbot />
       <Footer />

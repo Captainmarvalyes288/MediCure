@@ -80,7 +80,8 @@ const AllMedicines = () => {
       toast.error('Your cart is empty');
       return;
     }
-    navigate('/checkout');
+    // First go to cart page
+    navigate('/cart');
   };
 
   const filteredMedicines = medicines.filter(medicine => {
@@ -228,4 +229,4 @@ const AllMedicines = () => {
   );
 };
 
-export default AllMedicines; 
+export default AllMedicines;

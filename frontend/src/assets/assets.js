@@ -43,7 +43,7 @@ import member4 from './member4.jpg'
 import efficiency from './efficiency.jpg'
 import convinience from './convinience.jpg'
 import personalization from './personalization.jpg'
-
+import Chatbot from './chatbot.png'
 
 
 export const assets = {
@@ -70,7 +70,8 @@ export const assets = {
     dropdown_icon,
     upload_icon,
     stripe_logo,
-    razorpay_logo
+    razorpay_logo,
+    Chatbot
 }
 
 export const specialityData = [
