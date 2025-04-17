@@ -334,7 +334,6 @@ function Chatbot() {
         </div>
       )}
 
-      Main Chatbot Icon (Toggle Button)
       <div className="chatbot-icon" onClick={toggleChatbot} aria-label="Open medical assistant">
         <svg
           viewBox="0 0 24 24"
